@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vs Code</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div id="main">
+      <div id="header">
+        <div id="outer-nav">
+          <img src="../images/icons8-cancel-32.png" alt="">
+          <p>File</p>
+          <p>Edit</p>
+          <p>Selection</p>
+          <p>View</p>
+          <p>Go</p>
+          <p>Run</p>
+          <p>Terminal</p>
+          <p>Help</p>
+        </div>
+        <div id="desc">
+          <div class="arrows">
+            <i class="ri-arrow-left-line"></i>
+            <i class="ri-arrow-right-line"></i>
+          </div>
+          <div id="cmds"><p><i class="ri-search-2-line"></i> <%= data %></p></div>
+        </div>
+        <div id="size">
+          <p><i class="ri-subtract-fill"></i></p>
+          <p><i class="ri-checkbox-blank-line"></i></p>
+          <p><i class="ri-close-fill"></i></p>
+        </div>
+      </div>
+      <div id="hero">
+          <div id="left">
+            <div id="nav">
+                <div id="up-nav">    
+                  <i class="ri-file-copy-fill"></i>
+                  <i class="ri-search-line"></i>
+                  <i class="ri-git-branch-line"></i>
+                  <i class="ri-play-mini-fill"></i>
+                  <i class="ri-add-box-line"></i>
+                </div>
+                <div id="low-nav">
+                  <i class="ri-account-circle-line"></i>
+                  <i class="ri-settings-5-line"></i>
+                </div>
+            </div>
+            <div id="folder">
+              <div class="name">
+              <h4><i class="ri-arrow-down-s-line"></i><%= data %></h4>
+              <div class="folicons">
+                <i class="ri-file-add-line"></i>
+                <i class="ri-folder-add-line"></i>
+                <a href="/"><i class="ri-refresh-line"></i></a>
+              </div>
+              </div>
+              <div id="files">
+                <% files.forEach(element => { %>
+                  <div class="file">
+                    <h5><i class="ri-file-line"></i> <%= element %></h5>
+                    <div class="ficons">
+                      <i class="ri-pencil-line"></i>
+                      <i class="ri-delete-bin-line"></i>
+                    </div>
+                  </div>
+                <% }); %>
+              </div>
+            </div>
+          </div>
+          <div id="right">
+            <div id="rero"><p>Nothing to See Here !</p></div>
+          </div>
+      </div>
+      <div id="footer">
+        <div id="sicons">
+          <i id="green" class="ri-code-s-slash-fill"></i>
+          <div id="alerts">
+            <p><i class="ri-close-circle-line"></i> 0</p>
+            <p><i class="ri-alert-line"></i> 0</p>
+          </div>
+          <p><i class="ri-base-station-line"></i> 0</p>
+        </div>
+        <div id="finfo">
+          <div id="pos"><p>Ln 54, Col 39</p></div>
+          <p>Spaces: 2</p>
+          <p>UTF-8</p>
+          <p>LF</p>
+          <p>HTML</p>
+          <p><i class="ri-prohibited-line"></i> Port : 3000</p>
+          <i class="ri-notification-2-line"></i>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
