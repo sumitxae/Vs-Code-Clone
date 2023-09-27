@@ -4,8 +4,8 @@ const fs = require('fs')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  fs.readdir("../",{encoding:'utf-8'},(e,data)=>{  
-      fs.readdir("./Files",{encoding:'utf-8',withFileTypes:false},(err,files)=>{
+  fs.readdir("../",(e,data)=>{  
+      fs.readdir("./Files",{withFileTypes:true},(err,files)=>{
         res.render('index',{files,data});
       })
   })

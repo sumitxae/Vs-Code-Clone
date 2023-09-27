@@ -3,7 +3,7 @@
   <head>
     <title>Vs Code</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='../stylesheets/style.css' />
   </head>
   <body>
     <div id="main">
@@ -59,7 +59,12 @@
               <div id="files">
                 <% files.forEach(element => { %>
                   <div class="file">
-                    <h5><i class="ri-file-line"></i> <%= element %></h5>
+                    <%  if (element.isDirectory()) { %>
+                        <h5><i class="ri-folder-line">
+                    <%  } else { %>
+                        <h5><i class="ri-file-line"></i>
+                    <%  } %>
+                  </i> <%= element.name %></h5>
                     <div class="ficons">
                       <i class="ri-pencil-line"></i>
                       <i class="ri-delete-bin-line"></i>
@@ -93,5 +98,7 @@
         </div>
       </div>
     </div>
+    <script src="../javascripts/lib/ace.js"></script>
+    <script src="../javascripts/lib/theme-monokai.js"></script>
   </body>
 </html>
