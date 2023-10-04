@@ -71,8 +71,7 @@
                     <%  } else { %>
                         <i class="ri-file-line"></i>
                     <%  } %>
-                  </i> <%= element.name %>
-                  </a>
+                  </i> <%= element.name %></a>
                     <div class="ficons">
                       <i class="ri-pencil-line"></i>
                       <i class="ri-delete-bin-line"></i>
@@ -83,11 +82,22 @@
             </div>
           </div>
           <div id="right">
-            <div id="rero"><p>nothing to see here!</p>
+            <div id="rheader">
+              <div id="opened">
+                <p>
+                  <%= filename%>
+                </p>
+                <i class="ri-close-line"></i>
+              </div>
             </div>
-            <div id="remo">
-
-            </div>
+            <form action="/save/<%= filename%>">
+              <textarea name="content" type="submit" id="content"><%= data%></textarea>
+              <script>
+                document.querySelector('#content').addEventListener('keyup',(e)=>{
+                  document.querySelector('#right form').submit();
+                })
+              </script>
+            </form>
           </div>
       </div>
       <div id="footer">
