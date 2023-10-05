@@ -33,11 +33,3 @@ inputfolder.addEventListener("click",()=>{
         createfolderIconClicked = 0; 
     }
 })
-
-
-var arr = [1,2,3,4,5];
-var obj = {
-    a:"a",
-    b:"b",
-    c:"c"
-}

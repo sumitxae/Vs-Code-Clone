@@ -69,12 +69,20 @@
                     <%  if (element.isDirectory()) { %>
                         <i class="ri-folder-line">
                     <%  } else { %>
-                        <i class="ri-file-line"></i>
+                        <i class="ri-file-line">
                     <%  } %>
                   </i> <%= element.name %></a>
                     <div class="ficons">
-                      <i class="ri-pencil-line"></i>
-                      <i class="ri-delete-bin-line"></i>
+                      <i data-val="<%= element.name %>" id="rename" class="ri-pencil-line"></i>
+                      <%  if (element.isDirectory()) { %>
+                        <a href="/deletefolder/<%= element.name %>">
+                          <i class="ri-delete-bin-line"></i>
+                        </a>
+                      <%  } else { %>
+                        <a href="/deletefile/<%= element.name %>">
+                          <i class="ri-delete-bin-line"></i>
+                        </a>
+                      <%  } %>
                     </div>
                   </div>
                 <% }); %>
@@ -87,18 +95,22 @@
                 <p>
                   <%= filename%>
                 </p>
-                <i class="ri-close-line"></i>
+                <a href="/"><i class="ri-close-line"></i></a>
               </div>
             </div>
             <form action="/save/<%= filename%>">
               <textarea name="content" type="submit" id="content"><%= data%></textarea>
-              <script>
-                document.querySelector('#content').addEventListener('keyup',(e)=>{
-                  document.querySelector('#right form').submit();
-                })
-              </script>
             </form>
           </div>
+      </div>
+      <div id="popup">
+        <div id="overlay">
+          <p>Rename</p>
+          <form action="">
+            <input id="change-name-inp" name="newname" type="text" value="">
+            <input type="submit">
+          </form>
+        </div>
       </div>
       <div id="footer">
         <div id="sicons">
@@ -123,6 +135,6 @@
     <script src="../javascripts/lib/ace.js"></script>
     <script src="../javascripts/lib/theme-monokai.js"></script>
     <script src="../javascripts/create.js"></script>
-    <!-- <script src="../folderName.js"></script> -->
+    <script src="../javascripts/rename.js"></script>
   </body>
 </html>

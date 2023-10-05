@@ -40,8 +40,24 @@ router.get('/openfile/:filename', function(req, res, next) {
   })
 });
 
-router.post('/save/:filename',(req,res)=>{
-  
-})
+router.get('/rename/:filename', function(req, res, next) {
+  fs.rename(`./files/${req.params.filename}`,`./files/${req.query.newname}`,(err)=>{
+    res.redirect("/");
+  })
+});
+
+router.get('/deletefile/:filename', function(req, res, next) {
+  fs.unlink(`./files/${req.params.filename}`,()=>{
+    res.redirect("/");
+  })
+});
+
+router.get('/deletefolder/:foldername', function(req, res, next) {
+  fs.rmdir(`./files/${req.params.foldername}`,()=>{
+    res.redirect("/");
+  })
+});
+
 
 module.exports = router;
+

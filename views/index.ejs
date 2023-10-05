@@ -67,15 +67,23 @@
                   <div class="file">
                     <a href="/openfile/<%= element.name %>">
                     <%  if (element.isDirectory()) { %>
-                        <i class="ri-folder-line">
+                        <i class="ri-folder-line"></i>
                     <%  } else { %>
                         <i class="ri-file-line"></i>
                     <%  } %>
                   </i> <%= element.name %>
                   </a>
                     <div class="ficons">
-                      <i class="ri-pencil-line"></i>
-                      <i class="ri-delete-bin-line"></i>
+                      <i data-val="<%= element.name %>" id="rename" class="ri-pencil-line"></i>
+                      <%  if (element.isDirectory()) { %>
+                        <a href="/deletefolder/<%= element.name %>">
+                          <i class="ri-delete-bin-line"></i>
+                        </a>
+                      <%  } else { %>
+                        <a href="/deletefile/<%= element.name %>">
+                          <i class="ri-delete-bin-line"></i>
+                        </a>
+                      <%  } %>
                     </div>
                   </div>
                 <% }); %>
@@ -89,6 +97,15 @@
 
             </div>
           </div>
+      </div>
+      <div id="popup">
+        <div id="overlay">
+          <p>Rename</p>
+          <form action="">
+            <input id="change-name-inp" name="newname" type="text" value="">
+            <input type="submit">
+          </form>
+        </div>
       </div>
       <div id="footer">
         <div id="sicons">
@@ -113,6 +130,6 @@
     <script src="../javascripts/lib/ace.js"></script>
     <script src="../javascripts/lib/theme-monokai.js"></script>
     <script src="../javascripts/create.js"></script>
-    <!-- <script src="../folderName.js"></script> -->
+    <script src="../javascripts/rename.js"></script>
   </body>
 </html>
